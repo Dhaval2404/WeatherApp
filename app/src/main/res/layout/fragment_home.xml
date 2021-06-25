@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.github.dhaval2404.weatherapp.ui.home_screen.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/citySearchTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:errorEnabled="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/round_search_white_24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/citySearchEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_search_city"
+                android:imeOptions="actionSearch"
+                android:inputType="textCapWords"
+                android:maxLines="1"
+                android:text="@={viewModel.mSearchText}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.github.dhaval2404.weatherapp.ui.widget.AppRecyclerView
+            android:id="@+id/cityRV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/addCityBtn"
+            app:layout_constraintTop_toBottomOf="@id/citySearchTIL"
+            tools:itemCount="5"
+            tools:listitem="@layout/adapter_city_listing" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/cityEmptyView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="48dp"
+            app:layout_constraintBottom_toTopOf="@id/addCityBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/citySearchTIL"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/beautiful_city" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addCityBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:onClick="@{()->viewModel.addCityClick()}"
+            android:text="@string/action_add_city"
+            app:icon="@drawable/round_add_white_24dp"
+            app:iconGravity="textStart"
+            app:iconSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

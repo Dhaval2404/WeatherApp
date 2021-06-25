@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0069b4</color>
+    <color name="colorSecondary">#FCB641</color>
+
+    <array name="card_background_colors">
+        <item>@color/purple_200</item>
+        <item>@color/blue_200</item>
+        <item>@color/red_200</item>
+        <item>@color/deep_purple_200</item>
+        <item>@color/light_blue_200</item>
+        <item>@color/green_200</item>
+        <item>@color/deep_orange_200</item>
+        <item>@color/blue_grey_200</item>
+        <item>@color/pink_200</item>
+        <item>@color/indigo_200</item>
+        <item>@color/cyan_200</item>
+        <item>@color/brown_200</item>
+        <item>@color/teal_200</item>
+    </array>
+</resources>

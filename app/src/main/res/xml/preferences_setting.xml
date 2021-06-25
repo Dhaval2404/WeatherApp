@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.preference.PreferenceCategory
+        android:title="@string/pref_title_app_setting"
+        app:iconSpaceReserved="false">
+
+        <androidx.preference.ListPreference
+            android:entries="@array/unit_system"
+            android:entryValues="@array/unit_system_value"
+            android:key="@string/pref_key_unit_system"
+            android:title="@string/pref_title_unit_system"
+            android:defaultValue="metric"
+            app:useSimpleSummaryProvider="true"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.Preference
+            android:key="@string/pref_key_reset_city_bookmark"
+            android:summary="@string/pref_summary_reset_city_bookmark"
+            android:title="@string/pref_title_reset_city_bookmark"
+            app:iconSpaceReserved="false" />
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:title="@string/pref_title_about_app"
+        app:iconSpaceReserved="false">
+
+        <androidx.preference.Preference
+            android:key="@string/pref_key_github_repo"
+            android:summary="https://github.com/Dhaval2404/WeatherApp"
+            android:title="@string/pref_title_github_repo"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.Preference
+            android:key="@string/pref_key_open_source"
+            android:summary="@string/pref_summary_open_source"
+            android:title="@string/pref_title_open_source"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.Preference
+            android:key="@string/pref_key_app_version"
+            android:summary="v1.0"
+            android:title="@string/pref_title_app_version"
+            app:iconSpaceReserved="false" />
+
+    </androidx.preference.PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

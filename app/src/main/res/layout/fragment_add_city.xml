@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.github.dhaval2404.weatherapp.ui.add_city_screen.AddCityViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/locationSearchTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:errorEnabled="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/round_search_white_24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/locationSearchEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="@string/hint_search_city"
+                android:imeOptions="actionSearch" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <fragment
+            android:id="@+id/googleMap"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toTopOf="@id/addCityBtn"
+            app:layout_constraintTop_toBottomOf="@id/locationSearchTIL"
+            tools:context=".MapsActivity" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addCityBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:onClick="@{()->viewModel.onSaveClick()}"
+            android:text="@string/action_save"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

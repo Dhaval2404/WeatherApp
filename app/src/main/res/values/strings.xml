@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <string name="action_add_city">Add new city</string>
+    <string name="hint_search_city">Search City</string>
+
+    <string name="action_help">Help</string>
+    <string name="action_setting">Setting</string>
+    <string name="action_save">Save</string>
+
+    <string name="title_today_s_weather">Today\'s Weather</string>
+    <string name="title_next_4_days_forecast">Next 5 Days Forecast</string>
+
+    <string name="error_select_city">Please select city</string>
+    <string name="error_missing_city_info">Missing city info</string>
+    <string name="message_city_bookmark_cleared">City bookmarks cleared!</string>
+
+    <string name="weather_min_temperature">Min Temp</string>
+    <string name="weather_max_temperature">Max Temp</string>
+    <string name="weather_chance_of_rain">Chance of Rain</string>
+    <string name="weather_humidity">Humidity</string>
+    <string name="weather_wind">Wind</string>
+    <string name="weather_precipitation">Precipitation</string>
+    <string name="weather_pressure">Pressure</string>
+    <string name="weather_visibility">Visibility</string>
+    <string name="weather_sunrise">Sunrise</string>
+    <string name="weather_sunset">Sunset</string>
+
+    <string name="pref_title_app_setting">App Setting</string>
+    <string name="pref_title_about_app">App Information</string>
+
+    <string name="pref_key_unit_system">key_unit_system</string>
+    <string name="pref_title_unit_system">Unit System</string>
+    <string name="pref_key_app_version">app_version</string>
+    <string name="pref_title_app_version">App Version</string>
+    <string name="pref_key_github_repo">github_repo</string>
+    <string name="pref_title_github_repo">Github Repository</string>
+    <string name="pref_key_reset_city_bookmark">reset_city_bookmark</string>
+    <string name="pref_title_reset_city_bookmark">City Bookmarks</string>
+    <string name="pref_summary_reset_city_bookmark">Click here to clear city bookmark</string>
+    <string name="pref_key_open_source">key_open_source</string>
+    <string name="pref_title_open_source">Open Source Licences</string>
+    <string name="pref_summary_open_source">Click here to check open source libraries used in the app</string>
+
+    <string name="key_unit_system_filter">unit_system_filter</string>
+
+    <string-array name="unit_system">
+        <item>Metric</item>
+        <item>Imperial</item>
+    </string-array>
+
+    <string-array name="unit_system_value">
+        <item>metric</item>
+        <item>imperial</item>
+    </string-array>
+
+</resources>

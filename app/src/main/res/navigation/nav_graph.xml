@@ -1,0 +1,52 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.github.dhaval2404.weatherapp.ui.home_screen.HomeFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/showAddCity"
+            app:destination="@id/add_city" />
+        <action
+            android:id="@+id/showCityWeather"
+            app:destination="@id/city_weather">
+            <argument
+                android:name="city"
+                app:argType="com.github.dhaval2404.weatherapp.room.entity.CityEntity" />
+        </action>
+        <action
+            android:id="@+id/showHelpInfo"
+            app:destination="@id/help_info" />
+        <action
+            android:id="@+id/showSetting"
+            app:destination="@id/setting" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_city"
+        android:name="com.github.dhaval2404.weatherapp.ui.add_city_screen.AddCityFragment"
+        android:label="@string/action_add_city"
+        tools:layout="@layout/fragment_add_city" />
+
+    <fragment
+        android:id="@+id/city_weather"
+        android:name="com.github.dhaval2404.weatherapp.ui.weather_screen.WeatherFragment"
+        android:label="City Weather"
+        tools:layout="@layout/fragment_weather" />
+
+    <fragment
+        android:id="@+id/help_info"
+        android:name="com.github.dhaval2404.weatherapp.ui.help_screen.HelpFragment"
+        android:label="@string/action_help"
+        tools:layout="@layout/fragment_help" />
+
+    <fragment
+        android:id="@+id/setting"
+        android:name="com.github.dhaval2404.weatherapp.ui.setting_screen.SettingPrefFragment"
+        android:label="@string/action_setting" />
+
+</navigation>

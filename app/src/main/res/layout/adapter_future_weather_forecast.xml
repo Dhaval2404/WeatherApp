@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="weather"
+            type="com.github.dhaval2404.weatherapp.ui.weather_screen.model.WeatherForecast" />
+
+    </data>
+
+    <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/purple_200"
+        app:cardCornerRadius="16dp"
+        app:contentPadding="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dayText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minEms="5"
+                android:text="@{weather.day}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/white"
+                app:fontFamily="@font/googlesans_medium"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Monday" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/timeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{weather.time}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dayText"
+                tools:text="11:00 am" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/weatherImage"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/timeText"
+                app:srcRemote="@{weather.weatherImage}"
+                tools:srcCompat="@drawable/round_help_white_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tempText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{weather.temperature}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weatherImage"
+                tools:text="21° C" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+</layout>

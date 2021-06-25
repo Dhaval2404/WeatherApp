@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_something_went_wrong">Something went wrong!</string>
+    <string name="error_network_connection_error">Network connection error</string>
+    <string name="error_json_error">Received improper data. Please try again.</string>
+    <string name="error_server_not_available">Server responded with error. Please contact customer support.</string>
+</resources>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.github.dhaval2404.weatherapp.ui.weather_screen.WeatherViewModel" />
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:text="@string/title_today_s_weather"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:fontFamily="@font/googlesans_medium"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/todayWeatherCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:contentPadding="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/label">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tempInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.temperatureData}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+                            android:textColor="@color/colorPrimary"
+                            app:fontFamily="@font/googlesans_regular"
+                            app:layout_constraintBottom_toBottomOf="@id/weatherInfoImage"
+                            app:layout_constraintEnd_toStartOf="@id/weatherInfoImage"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/weatherInfoImage"
+                            tools:text="20° C" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/weatherInfoImage"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:layout_margin="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcRemote="@{viewModel.weatherImageURL}" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/weatherInfoRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="vertical"
+                            android:overScrollMode="never"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:layout_constraintTop_toBottomOf="@id/tempInfo"
+                            app:spanCount="3"
+                            tools:itemCount="9"
+                            tools:listitem="@layout/adapter_weather_info" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/futureText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/title_next_4_days_forecast"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textColor="@color/black"
+                    app:fontFamily="@font/googlesans_medium"
+                    app:layout_constraintTop_toBottomOf="@id/todayWeatherCard" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/futureWeatherInfoRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/futureText"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/adapter_future_weather_forecast" />
+
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:elevation="8dp"
+                    android:visibility="@{viewModel.loadingState ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+
+</layout>
